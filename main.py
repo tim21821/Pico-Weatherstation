@@ -4,7 +4,7 @@ from display import LCD_2inch, BL
 import draw
 
 
-if __name__ == "__main__":
+def main():
     pwm = PWM(Pin(BL))
     pwm.freq(1000)
     pwm.duty_u16(32768)  # max 65535
@@ -32,3 +32,7 @@ if __name__ == "__main__":
             position[0] %= LCD.width
 
         # time.sleep(0.5)
+
+
+if __name__ == "__main__":
+    main()
