@@ -11,9 +11,10 @@ if __name__== '__main__':
 
     LCD = LCD_2inch()
     #color BRG
-    LCD.show()
-    
+        
     cloud_positions = [[130, 100], [50, 30], [20, 80], [200, 50], [250, 90]]
+    
+    key0 = Pin(15,Pin.IN,Pin.PULL_UP) 
     
     while True:
         LCD.fill(LCD.SKY_BLUE)
