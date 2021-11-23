@@ -17,6 +17,9 @@ if __name__== '__main__':
     key0 = Pin(15,Pin.IN,Pin.PULL_UP) 
     
     while True:
+        if key0.value() == 0:
+            break
+        
         LCD.fill(LCD.SKY_BLUE)
         for x, y in cloud_positions:
             draw.draw_cloud(LCD, x, y)
@@ -25,6 +28,6 @@ if __name__== '__main__':
             position[0] += 1
             position[0] %= LCD.width
         
-        time.sleep(0.5)
+        # time.sleep(0.5)
     
     
