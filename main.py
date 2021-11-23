@@ -11,12 +11,19 @@ if __name__== '__main__':
 
     LCD = LCD_2inch()
     #color BRG
-    LCD.fill(LCD.SKY_BLUE)
     LCD.show()
     
-    draw.draw_cloud(LCD, 130, 100)
-    draw.draw_cloud(LCD, 50, 30)
-    draw.draw_cloud(LCD, 20, 80)
-    draw.draw_cloud(LCD, 200, 50)
-    draw.draw_cloud(LCD, 250, 90)
-    LCD.show()
+    cloud_positions = [[130, 100], [50, 30], [20, 80], [200, 50], [250, 90]]
+    
+    while True:
+        LCD.fill(LCD.SKY_BLUE)
+        for x, y in cloud_positions:
+            draw.draw_cloud(LCD, x, y)
+        LCD.show()
+        for position in cloud_positions:
+            position[0] += 1
+            position[0] %= LCD.width
+        
+        time.sleep(0.5)
+    
+    
