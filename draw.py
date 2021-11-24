@@ -13,8 +13,7 @@ def draw_cloud(screen, x, y, block_size=5):
     :param block_size: size of each pixel in the pixel art cloud
     :type block_size: int, optional
     """
-    OFFSETS = const(
-        [
+    OFFSETS = [
             (5, 0, screen.WHITE),
             (6, 0, screen.WHITE),
             (7, 0, screen.WHITE),
@@ -54,7 +53,6 @@ def draw_cloud(screen, x, y, block_size=5):
             (7, 4, screen.LIGHT_GREY),
             (8, 4, screen.LIGHT_GREY),
         ]
-    )
 
     for x_off, y_off, color in OFFSETS:
         screen.fill_rect(

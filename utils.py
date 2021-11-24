@@ -15,4 +15,4 @@ def rgb_to_hex565(rgb):
 
 
 if __name__ == "__main__":
-    print(rgb_to_hex565([255, 255, 255]))
+    print(rgb_to_hex565([255, 0, 0]))
