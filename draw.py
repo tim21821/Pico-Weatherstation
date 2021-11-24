@@ -2,6 +2,17 @@ from micropython import const
 
 
 def draw_cloud(screen, x, y, block_size=5):
+    """Draws a pixel art representation of a cloud
+
+    :param screen: The screen to draw on
+    :type screen: :class:`display.LCD_2inch`
+    :param x: x position of the top left corner of the cloud (extended so that the cloud lies in a rectangle)
+    :type x: int
+    :param y: y position of the top left corner of the cloud (extended so that the cloud lies in a rectangle)
+    :type y: int
+    :param block_size: size of each pixel in the pixel art cloud
+    :type block_size: int, optional
+    """
     OFFSETS = const(
         [
             (5, 0, screen.WHITE),
