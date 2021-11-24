@@ -161,17 +161,3 @@ class LCD_2inch(framebuf.FrameBuffer):
         self.cs(0)
         self.spi.write(self.buffer)
         self.cs(1)
-
-
-if __name__ == "__main__":
-    pwm = PWM(Pin(BL))
-    pwm.freq(1000)
-    pwm.duty_u16(32768)  # max 65535
-
-    LCD = LCD_2inch()
-    # color BRG
-    LCD.fill(LCD.SKY_BLUE)
-    LCD.show()
-    time.sleep(1)
-    LCD.text("Hallo Welt", 20, 80, LCD.BLACK)
-    LCD.show()
