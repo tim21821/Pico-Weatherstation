@@ -1,24 +1,25 @@
 """
-from https://www.waveshare.com/w/upload/2/28/Pico_code.7z
+from https://www.waveshare.com/w/upload/2/28/Pico_code.7z, modified
 """
 
 from machine import Pin, SPI, PWM
+from micropython import const
 import framebuf
 import time
 import os
 
-BL = 13
-DC = 8
-RST = 12
-MOSI = 11
-SCK = 10
-CS = 9
+BL = const(13)
+DC = const(8)
+RST = const(12)
+MOSI = const(11)
+SCK = const(10)
+CS = const(9)
 
 
 class LCD_2inch(framebuf.FrameBuffer):
     def __init__(self):
-        self.width = 320
-        self.height = 240
+        self.width = const(320)
+        self.height = const(240)
 
         self.cs = Pin(CS, Pin.OUT)
         self.rst = Pin(RST, Pin.OUT)
@@ -35,14 +36,14 @@ class LCD_2inch(framebuf.FrameBuffer):
         super().__init__(self.buffer, self.width, self.height, framebuf.RGB565)
         self.init_display()
 
-        self.RED = 0x07E0
-        self.GREEN = 0x001F
-        self.BLUE = 0xF800
-        self.WHITE = 0xFFFF
-        self.BLACK = 0x0000
-        self.SKY_BLUE = 0x7E9F
-        self.LIGHTER_GREY = 0xE79E
-        self.LIGHT_GREY = 0xD71D
+        self.RED = const(0x07E0)
+        self.GREEN = const(0x001F)
+        self.BLUE = const(0xF800)
+        self.WHITE = const(0xFFFF)
+        self.BLACK = const(0x0000)
+        self.SKY_BLUE = const(0x7E9F)
+        self.LIGHTER_GREY = const(0xE79E)
+        self.LIGHT_GREY = const(0xD71D)
 
     def write_cmd(self, cmd):
         self.cs(1)
