@@ -5,7 +5,8 @@
 To build the station you need
 
 * a [Raspberry Pi Pico](https://www.raspberrypi.com/products/raspberry-pi-pico/),
-* a [Waveshare Pico-LCD-2](https://www.waveshare.com/pico-lcd-2.htm).
+* a [Waveshare Pico-LCD-2](https://www.waveshare.com/pico-lcd-2.htm),
+* a Micro USB power supply.
 
 ## Installation
 
