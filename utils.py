@@ -9,8 +9,8 @@ def rgb_to_hex565(rgb):
     red, green, blue = rgb
     return "%0.4X" % (
         (int(blue / 255 * 31) << 11)
-        | (int(red / 255 * 63) << 5)
-        | (int(green / 255 * 31))
+        + (int(red / 255 * 63) << 5)
+        + (int(green / 255 * 31))
     )
 
 

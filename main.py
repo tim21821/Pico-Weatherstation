@@ -2,6 +2,7 @@ from machine import PWM, Pin
 import time
 from display import LCD_2inch, BL
 import draw
+import temperature
 
 
 def main():
@@ -30,8 +31,11 @@ def main():
         LCD.fill(LCD.SKY_BLUE)
         for x, y in cloud_positions:
             draw.draw_cloud(LCD, x, y)
+
+        LCD.text("Temperatur: {:0.1f} °C".format(temperature.get_cpu_temp()), 20, 150)
+
         LCD.show()
-        
+
         # update positions
         for position in cloud_positions:
             position[0] += 1
