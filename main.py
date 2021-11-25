@@ -15,33 +15,37 @@ def main():
     key1 = Pin(17, Pin.IN, Pin.PULL_UP)
     key2 = Pin(2, Pin.IN, Pin.PULL_UP)
     key3 = Pin(3, Pin.IN, Pin.PULL_UP)
-    # lcd_power = Pin(39, Pin.OUT)
     # color BRG
 
     cloud_positions = [[130, 100], [50, 30], [20, 80], [200, 50], [250, 90]]
+    lcd_power = True
 
     while True:
         # keyboard interrupt
         if key0.value() == 0:
             break
         if key1.value() == 0:
-            lcd_power.toggle()
+            lcd_power = not lcd_power
 
-        # drawing
-        LCD.fill(LCD.SKY_BLUE)
-        for x, y in cloud_positions:
-            draw.draw_cloud(LCD, x, y)
+        if lcd_power:
+            # drawing
+            LCD.fill(LCD.SKY_BLUE)
+            for x, y in cloud_positions:
+                draw.draw_cloud(LCD, x, y)
 
-        LCD.text("Temperatur: {:0.1f} °C".format(temperature.get_cpu_temp()), 20, 150)
+            LCD.text("Temperatur: {:0.1f} °C".format(temperature.get_cpu_temp()), 20, 150)
 
-        LCD.show()
+            LCD.show()
 
-        # update positions
-        for position in cloud_positions:
-            position[0] += 1
-            position[0] %= LCD.width
+            # update positions
+            for position in cloud_positions:
+                position[0] += 1
+                position[0] %= LCD.width
+        else:
+            LCD.fill(LCD.BLACK)
+            LCD.show()
 
-        # time.sleep(0.5)
+        time.sleep(0.1)
 
 
 if __name__ == "__main__":
